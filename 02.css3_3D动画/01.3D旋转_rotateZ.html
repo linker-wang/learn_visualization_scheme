@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style lang="css">
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      .box {
+        width: 200px;
+        height: 100px;
+        background-color: #0ec1e1;
+        border-left: 5px red solid;
+        border-top: 5px red solid;
+
+        /* 形变 */
+        /* transform: rotateZ(45deg); */
+        /* transform: rotateX(45deg); */
+        /* transform: rotateY(45deg); */
+
+        /* 使用简写 transform: retate3d(0, 0, 1, 45deg) */
+        /* 前三个参数表示x, y, z轴是否旋转, 如果是1表示旋转, 如果是0表示不旋转, 第四个参数表示旋转角度 */
+        transform: rotate3d(1, 1, 1, 45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">box</div>
+  </body>
+</html>

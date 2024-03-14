@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style lang="css">
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      .box {
+        position: relative;
+        top: 200px;
+        left: 200px;
+        width: 200px;
+        height: 100px;
+        background-color: #0ec1e1;
+
+        /* 父元素中使用透视 */
+        perspective: 200px;
+      }
+
+      .item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(228, 123, 123);
+
+        /* 形变 */
+        transform: rotate3d(0, 1, 0, 45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="item"></div>
+    </div>
+  </body>
+</html>
