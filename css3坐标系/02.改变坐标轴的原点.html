@@ -21,10 +21,14 @@
         border-top: 5px red solid;
 
         /* 形变 */
-        /* 形变的方式按照书写的形变顺序而定 */
-        /* 使用形变的元素的坐标轴的原点默认在元素的中心点即50%, 坐标轴的方向会随着形变一起改变, 之后的形变会根据改变方向后的坐标轴而定 */
-        /* transform: translateX(200px) rotate(45deg); */
         transform: rotate(45deg) translateX(200px);
+        /* 可以使用transform-origin修改坐标轴的原点位置 */
+        /* 原点默认为: transform-origin: 50% 50%; */
+        /* transform-origin: left; 表示X轴为0, y轴为50% */
+        /* transform-origin: right; 表示X轴为100%, y轴为50% */
+        /* transform-origin: top; 表示X轴为50%, y轴为0 */
+        /* transform-origin: bottom; 表示X轴为50%, y轴为100% */
+        transform-origin: 0 0;
       }
     </style>
   </head>
