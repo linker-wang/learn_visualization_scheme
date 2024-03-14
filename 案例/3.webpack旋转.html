@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+        background-color: #2b3a42;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0);
+
+        position: relative;
+        /* 3d */
+        transform-style: preserve-3d;
+        transform: rotateX(55deg) rotate(45deg);
+      }
+
+      .box-out,
+      .box-inner {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        background-color: rgba(111, 166, 191, 0);
+        /* 3d */
+        transform-style: preserve-3d;
+      }
+
+      .box-out {
+        animation: out ease 2s infinite;
+      }
+
+      .box-inner {
+        animation: inner ease 2s infinite;
+      }
+
+      .box-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(111, 166, 191, 0.4);
+
+        border: 2px white solid;
+      }
+
+      .box-out-item-top {
+        transform: translateY(-50%) rotateX(90deg);
+      }
+      .box-out-item-bottom {
+        transform: translateY(50%) rotateX(-90deg);
+      }
+      .box-out-item-left {
+        transform: translateX(-50%) rotateY(-90deg);
+      }
+      .box-out-item-right {
+        transform: translateX(50%) rotateY(90deg);
+      }
+      .box-out-item-front {
+        transform: translateZ(50px);
+      }
+      .box-out-item-behind {
+        transform: translateZ(-50px);
+      }
+
+      .box-inner-item-top {
+        transform: scale3d(0.5, 0.5, 0.5) translateY(-50%) rotateX(90deg);
+      }
+      .box-inner-item-bottom {
+        transform: scale3d(0.5, 0.5, 0.5) translateY(50%) rotateX(-90deg);
+      }
+      .box-inner-item-left {
+        transform: scale3d(0.5, 0.5, 0.5) translateX(-50%) rotateY(-90deg);
+      }
+      .box-inner-item-right {
+        transform: scale3d(0.5, 0.5, 0.5) translateX(50%) rotateY(90deg);
+      }
+      .box-inner-item-front {
+        transform: scale(0.5, 0.5) translateZ(25px);
+      }
+      .box-inner-item-behind {
+        transform: scale(0.5, 0.5) translateZ(-25px);
+      }
+
+      @keyframes inner {
+        0% {
+          transform: rotateZ(0);
+        }
+
+        100% {
+          transform: rotateZ(360deg);
+        }
+      }
+
+      @keyframes out {
+        0% {
+          transform: rotateZ(0);
+        }
+
+        100% {
+          transform: rotateZ(-360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="box-out">
+        <div class="box-item box-out-item-top"></div>
+        <div class="box-item box-out-item-bottom"></div>
+        <div class="box-item box-out-item-left"></div>
+        <div class="box-item box-out-item-right"></div>
+        <div class="box-item box-out-item-front"></div>
+        <div class="box-item box-out-item-behind"></div>
+      </div>
+      <div class="box-inner">
+        <div class="box-item box-inner-item-top"></div>
+        <div class="box-item box-inner-item-bottom"></div>
+        <div class="box-item box-inner-item-left"></div>
+        <div class="box-item box-inner-item-right"></div>
+        <div class="box-item box-inner-item-front"></div>
+        <div class="box-item box-inner-item-behind"></div>
+      </div>
+    </div>
+  </body>
+</html>
