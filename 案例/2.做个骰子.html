@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+
+        background-color: skyblue;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        position: relative;
+
+        background-color: #fff;
+        /* 设置3d空间 */
+        transform-style: preserve-3d;
+
+        transform: rotateX(60deg) rotateY(30deg);
+      }
+
+      .box-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: rgb(101, 101, 100);
+        background-color: #fff;
+
+        border: 1px rgb(235, 231, 231) solid;
+        border-radius: 30px;
+      }
+
+      .item1 {
+        transform: translate3d(0, 0, 50px);
+      }
+
+      .item2 {
+        transform: translate3d(-50%, 0, 0) rotate3d(0, 1, 0, -90deg);
+      }
+
+      .item3 {
+        transform: translate3d(0, 50%, 0) rotate3d(1, 0, 0, -90deg);
+      }
+
+      .item4 {
+        transform: translate3d(0, -50%, 0) rotate3d(1, 0, 0, 90deg);
+      }
+
+      .item5 {
+        transform: translate3d(50%, 0, 0) rotate3d(0, 1, 0, 90deg);
+      }
+
+      .item6 {
+        transform: translate3d(0, 0, -50px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="box-item item1">1</div>
+      <div class="box-item item2">2</div>
+      <div class="box-item item3">3</div>
+      <div class="box-item item4">4</div>
+      <div class="box-item item5">5</div>
+      <div class="box-item item6">6</div>
+    </div>
+  </body>
+</html>
