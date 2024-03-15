@@ -121,6 +121,68 @@ body {
   animation: aperture-translate-bottom linear 1.5s infinite;
 }
 
+.recovery-mark {
+  position: absolute;
+  top: 27%;
+  left: 25%;
+
+  /* 动画 */
+  animation: recovery-mark-translate linear 2s infinite;
+}
+
+.block-A {
+  position: absolute;
+  top: 38%;
+  left: 28%;
+
+  /* 动画 */
+  animation: block-A-translate linear 1.6s infinite;
+}
+
+.block-B {
+  position: absolute;
+  top: 31%;
+  left: 17%;
+
+  /* 动画 */
+  animation: block-B-translate linear 2s infinite;
+}
+
+.block-C {
+  position: absolute;
+  top: 36%;
+  left: 42%;
+
+  /* 动画 */
+  animation: block-C-translate linear 1.2s infinite;
+}
+
+.block-D {
+  position: absolute;
+  top: 18%;
+  left: 36%;
+
+  /* 动画 */
+  animation: block-D-translate linear 3s infinite;
+}
+
+.block-E {
+  position: absolute;
+  top: 18%;
+  left: 22%;
+
+  /* 动画 */
+  animation: block-E-translate linear 1s infinite;
+}
+
+.block-F {
+  position: absolute;
+  top: 10%;
+  left: 32%;
+
+  /* 动画 */
+  animation: block-F-translate linear 1.5s infinite;
+}
 
 /* 定义帧动画 */
 /* 屏幕数据闪烁动画 */
@@ -316,3 +378,121 @@ body {
   }
 }
 
+@keyframes recovery-mark-translate {
+  0% {
+   transform: translate3d(0, 0, 0); 
+  }
+  
+  50% {
+    transform: translate3d(0, -20px, 0);
+  }
+  
+  100% {
+    transform: translate3d(0, 0, 0); 
+  }
+}
+
+/* 方块A动画 */
+@keyframes block-A-translate {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, -40px, 0);
+    opacity: 0;
+  }
+}
+
+/* 方块B动画 */
+@keyframes block-B-translate {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, -40px, 0);
+    opacity: 0;
+  }
+}
+
+/* 方块C动画 */
+@keyframes block-C-translate {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  80% {
+    transform: translate3d(0, -40px, 0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(0, -40px, 0);
+    opacity: 0;
+  }
+}
+
+/* 方块D动画 */
+@keyframes block-D-translate {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+  30% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+}
+
+/* 方块E动画 */
+@keyframes block-E-translate {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, -50px, 0);
+    opacity: 0;
+  }
+}
+
+/* 方块F动画 */
+@keyframes block-F-translate {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, -50px, 0);
+    opacity: 0;
+  }
+}
