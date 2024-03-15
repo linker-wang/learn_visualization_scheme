@@ -6,9 +6,313 @@ body {
 .show-content {
   width: 100%;
   height: 500px;
+  background-image: url(../image/2.5D/banbj.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  position: relative;
 }
 
-.background {
+.banner {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+
+  /* 开启3d空间 */
+  transform-style: preserve-3d;
+}
+
+.banner-background {
   width: 100%;
   height: 100%;
 }
+
+.people {
+  position: absolute;
+  bottom: 18%;
+  right: 12%;
+}
+
+.tuMing {
+  position: absolute;
+  bottom: 27%;
+  right: 15%;
+
+  /* 动画 */
+  animation: screen-flicker ease .7s infinite;
+}
+
+.ray-left {
+  position: absolute;
+  bottom: 27%;
+  right: 32%;
+
+  /* 动画 */
+  animation: ray-left-translate linear 1.5s infinite;
+}
+
+.ray-right {
+  position: absolute;
+  bottom: 37%;
+  right: 39%;
+
+  /* 动画 */
+  animation: ray-right-translate linear 1.5s infinite;
+}
+
+.conveyor {
+  position: absolute;
+  bottom: 39%;
+  right: 43%;
+
+  /* 动画 */
+  animation: conveyor-translate linear 2s infinite;
+}
+
+.data-background {
+  position: absolute;
+  top: 0;
+  right: 16%;
+
+  /* 动画 */
+  animation: data-background-translate linear 1s infinite;
+}
+
+.char-erp {
+  position: absolute;
+  top: 27%;
+  right: 18%;
+
+  /* 动画 */
+  animation: char-erp-translate linear 3s infinite;
+}
+.char-crm {
+  position: absolute;
+  top: 19%;
+  right: 21%;
+
+  /* 动画 */
+  animation: char-crm-translate linear 2.5s infinite;
+}
+.char-oa {
+  position: absolute;
+  top: 14%;
+  right: 17%;
+
+  /* 动画 */
+  animation: char-oa-translate linear 2s infinite;
+}
+
+.aperture-top {
+  position: absolute;
+  top: 25%;
+  right: 15%;
+
+  /* 动画 */
+  animation: aperture-translate-top linear 1.5s infinite;
+}
+
+.aperture-bottom {
+  position: absolute;
+  top: 25%;
+  right: 15%;
+
+  /* 动画 */
+  animation: aperture-translate-bottom linear 1.5s infinite;
+}
+
+
+/* 定义帧动画 */
+/* 屏幕数据闪烁动画 */
+@keyframes screen-flicker {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .4;
+  }
+
+  0% {
+    opacity: 1;
+  }
+}
+
+@keyframes ray-left-translate {
+  0% {
+    transform: translate3d(0,0,0);
+  }
+
+  100% {
+    transform: translate3d(-48px, -27px, 0);
+  }
+}
+
+@keyframes ray-right-translate {
+  0% {
+    transform: translate3d(0,0,0);
+  }
+
+  100% {
+    transform: translate3d(48px, 26px, 0);
+  }
+}
+
+@keyframes conveyor-translate {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  90% {
+    transform: translate3d(48px, 26px, 0);
+  }
+
+  100% {
+    transform: translate3d(48px, 26px, 0);
+  }
+}
+
+@keyframes data-background-translate {
+  0%{
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, -80px, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes char-erp-translate {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10% {
+    transform: translate3d(0, 4px, 0);
+  }
+
+  30% {
+    transform: translate3d(0, -4px, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 4px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+
+  80% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+@keyframes char-crm-translate {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  30% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  80% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes char-oa-translate {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10% {
+    transform: translate3d(0, -3px, 0);
+  }
+
+  30% {
+    transform: translate3d(0, 3px, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -3px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, 3px, 0);
+  }
+
+  80% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes aperture-translate-top {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, -100px, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes aperture-translate-bottom {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  25% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, -50px, 0);
+    opacity: 0;
+  }
+}
+
