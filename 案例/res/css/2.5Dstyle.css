@@ -17,9 +17,6 @@ body {
   position: absolute;
   top: 15%;
   right: 15%;
-
-  /* 开启3d空间 */
-  transform-style: preserve-3d;
 }
 
 .banner-background {

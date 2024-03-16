@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+
+        width: 100vw;
+        height: 100vh;
+      }
+      #content {
+        background-color: rgba(57, 123, 236, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- canvas标签内部可以写入一些提示, 如果浏览器不支持canvas,则会显示这些提示 -->
+    <canvas id="content"> 浏览器不支持canvas </canvas>
+    <script>
+      window.onload(() => {
+        const canvasEl = document.getElementById('content');
+
+        /* 如果浏览器不支持canvas则结束回调 */
+        if (!canvasEl.getContext) {
+          return;
+        }
+
+        /* 获取canvas的上下文 */
+        /* context可以是2d,也可以是webgl */
+        const ctx = canvasEl.getContext('2d');
+
+        ctx.fillRect(0, 0, 100, 50);
+      });
+    </script>
+  </body>
+</html>
