@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #content {
+        width: 500px;
+        height: 500px;
+        background-color: #f5abab;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="content"></canvas>
+    <script>
+      window.onload = () => {
+        const canvasEl = document.getElementById('content');
+        const { offsetWidth, offsetHeight } = canvasEl;
+        canvasEl.width = offsetWidth;
+        canvasEl.height = offsetHeight;
+
+        const ctx = canvasEl.getContext('2d');
+
+        /* 执行次数 */
+        let counter = 0;
+
+        /* 绘制动画 */
+        /* 1. 使用setInterval定时执行帧, 缺点,因为setInterval是的回调函数是宏任务的,所以可能不太准确 */
+        /* const timer = setInterval(() => {
+          draw();
+        }, 10); */
+
+        /* 2. 使用requestAnimationFrame(callBack)函数, 60帧, 需要在回调函数draw中的最后调用一次 */
+        requestAnimationFrame(draw);
+
+        /* 定义一个绘制函数 */
+        function draw() {
+          /* 相关参数修改 */
+          counter++;
+
+          /* 1.清空画布内容 */
+          ctx.clearRect(0, 0, offsetWidth, offsetHeight);
+
+          /* 2.保存原始状态 */
+          ctx.save();
+
+          /* 3.修改相关样式 */
+          ctx.strokeStyle = 'red';
+
+          /* 4.绘图 */
+          ctx.beginPath();
+          ctx.translate(100, 100);
+          ctx.rotate((Math.PI / 180) * counter);
+          ctx.moveTo(0, -50);
+          ctx.lineTo(0, 50);
+          ctx.stroke();
+
+          /* 5.恢复原来状态 */
+          ctx.restore();
+
+          requestAnimationFrame(draw);
+        }
+      };
+    </script>
+  </body>
+</html>

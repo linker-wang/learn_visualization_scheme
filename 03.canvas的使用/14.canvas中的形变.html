@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #content {
+        width: 500px;
+        height: 500px;
+        background-color: #f09b9b;
+        background-image: url(./image/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="content"></canvas>
+    <script>
+      window.onload = () => {
+        const canvasEl = document.getElementById('content');
+        const { offsetWidth, offsetHeight } = canvasEl;
+        canvasEl.width = offsetWidth;
+        canvasEl.height = offsetHeight;
+
+        const ctx = canvasEl.getContext('2d');
+
+        /* translate(x, y)位移, rotate(angle)旋转弧度制,顺时针, scale()缩放 */
+        /* 形变本质上是对元素的坐标轴进行形变, 之后绘图会根据形变后的坐标轴绘制 */
+
+        /* 变形时,尽量先保存状态, 后续可能要用到未形变的图形 */
+        ctx.save();
+        ctx.translate(100, 0);
+        ctx.fillRect(0, 0, 100, 100);
+
+        ctx.restore();
+        ctx.fillRect(0, 200, 100, 100);
+
+        ctx.save();
+        ctx.translate(200, 200);
+        ctx.rotate(Math.PI / 4);
+        ctx.fillRect(0, 0, 100, 100);
+
+        ctx.restore();
+        ctx.save();
+        ctx.translate(300, 300);
+        ctx.scale(0.2, 0.2);
+        ctx.fillRect(0, 0, 100, 100);
+      };
+    </script>
+  </body>
+</html>
