@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #content {
+        width: 500px;
+        height: 500px;
+        background-color: #f09b9b;
+        background-image: url(./image/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="content"></canvas>
+    <script>
+      window.onload = () => {
+        const canvasEl = document.getElementById('content');
+        const { offsetWidth, offsetHeight } = canvasEl;
+        canvasEl.width = offsetWidth;
+        canvasEl.height = offsetHeight;
+
+        const ctx = canvasEl.getContext('2d');
+
+        /* drawImage(image, x, y) 其中image可以是引入的图片,也可以是canvas对象*/
+        /* drawImage(image, x, y, width, height) 可以添加图片的宽高*/
+        /* drawImage(image, x, y, width, height, dx, dy, dwidth, dheight) 可以裁剪图片 */
+
+        /* 图片来源:
+            1. 可以是HTMLImageElement: 使用Image()构造出的, 或者dom获取的img元素
+            2. 可以是HTMLVideoElement: 从video元素中抓取的当前帧的对象
+            3. 可以是HTMLCanvasElement: 可以使用另一个<canvas>元素作为图片的来源
+            ...
+        */
+
+        const image = new Image();
+        image.src = './image/backdrop.png';
+        image.onload = () => {
+          ctx.drawImage(image, 0, 0, 360, 260);
+
+          ctx.beginPath();
+          ctx.moveTo(100, 200);
+          ctx.lineTo(150, 140);
+          ctx.lineTo(200, 180);
+          ctx.lineTo(250, 50);
+          ctx.lineTo(300, 100);
+          ctx.stroke();
+        };
+      };
+    </script>
+  </body>
+</html>
