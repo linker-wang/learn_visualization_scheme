@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #content {
+        width: 500px;
+        height: 500px;
+        background-color: #f09b9b;
+        background-image: url(./image/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="content"></canvas>
+    <script>
+      window.onload = () => {
+        const canvasEl = document.getElementById('content');
+        const { offsetWidth, offsetHeight } = canvasEl;
+        canvasEl.width = offsetWidth;
+        canvasEl.height = offsetHeight;
+
+        const ctx = canvasEl.getContext('2d');
+        ctx.fillStyle = 'red';
+        ctx.strokeStyle = 'orange';
+
+        /* 设置文本样式 */
+        /* 1. font = value 与css中的font属性一致, 默认为 10px sens-serif */
+        ctx.font = '30px sens-serif';
+
+        /* 2. textAlign = value 文本对齐选项, 可选值有: start, end, left, right, center 默认为start*/
+        ctx.textAlign = 'start';
+
+        /* 3. textBaseline = value 基线对齐方式, 可选值有 top, hangin, middle, alphabetic, ideographic, bottom, 默认值为alphabetic */
+        ctx.textBaseline = top;
+
+        /* canvas中绘制文本的两种方式 */
+        /* 1. 使用fillText(text, x, y, [maxWidth]) */
+        ctx.fillText('hello world!', 100, 100);
+
+        /* 2. 使用strokeText(text, x, y [maxWidth]) */
+        ctx.strokeText('hello world!', 100, 300);
+      };
+    </script>
+  </body>
+</html>

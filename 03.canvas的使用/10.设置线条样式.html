@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #content {
+        width: 500px;
+        height: 500px;
+        background-color: #f09b9b;
+        background-image: url(./image/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="content"></canvas>
+    <script>
+      window.onload = () => {
+        const canvasEl = document.getElementById('content');
+        const { offsetWidth, offsetHeight } = canvasEl;
+        canvasEl.width = offsetWidth;
+        canvasEl.height = offsetHeight;
+
+        const ctx = canvasEl.getContext('2d');
+
+        /* lineWidth = value 用来设置线条宽度 */
+        /* lineWidth 默认为1, 表示1px, 不需要加单位, 0, 负数等其他非法参数会被忽略 */
+        /* 绘制的线条宽度在路径两边平均分布, lineWidth默认为1时, 路径左右两边各占0.5,因为左右两边还剩下有0.5网格没占满,会自动用线条颜色的一般色调填充剩下的格子 */
+        /* 因此,我们在绘制直线时,可以控制路径位置,使得线条两边占满像素格,来保证线条不模糊 */
+        ctx.lineWidth = 6;
+
+        /* lineCap = type 用来设置线条末端样式 */
+        /* 使用lineCap时,不要用closePath(), 会失效 */
+        /* 参数类型 butt 截断 默认*/
+        /* round 圆形 */
+        /* square 正方形 */
+        ctx.lineCap = 'square';
+        ctx.beginPath();
+        ctx.moveTo(10, 10);
+        ctx.lineTo(110, 10);
+        ctx.stroke();
+
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(160, 10);
+        ctx.lineTo(260, 10);
+        ctx.stroke();
+
+        ctx.lineCap = 'butt';
+        ctx.beginPath();
+        ctx.moveTo(310, 10);
+        ctx.lineTo(410, 10);
+        ctx.stroke();
+
+        /* lineJoin = type 用来设置与线条之间接合处的样式 */
+        /* 参数类型 round 圆形 */
+        /* bevel 斜角 */
+        /* miter 斜槽规 默认 */
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(10, 30);
+        ctx.lineTo(60, 80);
+        ctx.lineTo(110, 30);
+        ctx.stroke();
+
+        ctx.lineJoin = 'bevel';
+        ctx.beginPath();
+        ctx.moveTo(160, 30);
+        ctx.lineTo(210, 80);
+        ctx.lineTo(260, 30);
+        ctx.stroke();
+
+        ctx.lineJoin = 'miter';
+        ctx.beginPath();
+        ctx.moveTo(310, 30);
+        ctx.lineTo(360, 80);
+        ctx.lineTo(410, 30);
+        ctx.stroke();
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #content {
+        width: 500px;
+        height: 500px;
+        background-color: rgba(90, 154, 232, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="content"></canvas>
+
+    <script>
+      window.onload = () => {
+        const canvasEl = document.getElementById('content');
+        const ctx = canvasEl.getContext('2d');
+
+        /* 绘制路径的方法 */
+        /* 1. beginPath()  开始绘制新的路径 */
+        /* 2. closePath() 结束当前路径的绘制, 使用后会自动闭合图形 */
+        /* 3. stroke() 通过线条来绘制图形描边 */
+        /* 4. fill() 通过填充绘制图形 */
+
+        /* moveTo(x, y) 用来给画笔定位, 通常用于为绘制图形设置起始点*/
+        /* lineTo(x, y) 绘制从当前位置到(x, y)点的一条直线*/
+        /* lineWidth 设置线条的宽度*/
+
+        /* 绘制一条直线 */
+        ctx.lineWidth = 1;
+
+        ctx.beginPath();
+        ctx.moveTo(10, 10);
+        ctx.lineTo(200, 10);
+        ctx.closePath();
+        ctx.stroke();
+      };
+    </script>
+  </body>
+</html>

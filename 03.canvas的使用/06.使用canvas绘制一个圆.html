@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #content {
+        width: 500px;
+        height: 500px;
+        background-color: #f3bdbd;
+        background-image: url(./image/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="content"></canvas>
+    <script>
+      window.onload = () => {
+        const canvasEl = document.getElementById('content');
+        const { offsetWidth, offsetHeight } = canvasEl;
+        canvasEl.width = offsetWidth;
+        canvasEl.height = offsetHeight;
+
+        /* 使用arc(x, y, radius, startAngle, endAngle, anticlockwise) 绘制一个圆 */
+        /* 参数x,y 表示圆心坐标*/
+        /* radius表示半径 */
+        /* startAngle, endAngle 表示 圆的起始和结束的弧度 默认从x轴正反向为起始位置*/
+        /* anticlockwise 表示是否反向绘制, true表示反向绘制 */
+        const ctx = canvasEl.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(100, 100, 50, 0, Math.PI, true);
+        ctx.closePath();
+        ctx.stroke();
+      };
+    </script>
+  </body>
+</html>

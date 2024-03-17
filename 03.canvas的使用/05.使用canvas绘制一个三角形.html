@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #content {
+        width: 500px;
+        height: 500px;
+        background-color: rgb(237, 192, 192);
+
+        background-image: url(./image/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="content"></canvas>
+    <script>
+      const canvasEl = document.getElementById('content');
+      const ctx = canvasEl.getContext('2d');
+
+      const { offsetWidth, offsetHeight } = canvasEl;
+      canvasEl.width = offsetWidth;
+      canvasEl.height = offsetHeight;
+
+      ctx.beginPath();
+      ctx.moveTo(10, 10);
+      ctx.lineTo(10, 110);
+      ctx.lineTo(60, 60);
+      ctx.lineTo(10, 10);
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(70, 10);
+      ctx.lineTo(70, 110);
+      ctx.lineTo(120, 60);
+      ctx.lineTo(70, 10);
+      ctx.closePath();
+      ctx.fill();
+    </script>
+  </body>
+</html>

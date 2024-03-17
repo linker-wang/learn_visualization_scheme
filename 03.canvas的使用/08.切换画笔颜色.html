@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #content {
+        width: 500px;
+        height: 500px;
+        background-color: rgba(246, 167, 167, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="content"></canvas>
+    <script>
+      const canvasEl = document.getElementById('content');
+      const { offsetWidth, offsetHeight } = canvasEl;
+      canvasEl.width = offsetWidth;
+      canvasEl.height = offsetHeight;
+
+      const ctx = canvasEl.getContext('2d');
+
+      /* 使用fillStyle 和 strokeStyle 设置画笔颜色 */
+      ctx.fillStyle = 'orange';
+      ctx.fillStyle = '#ff00ff';
+      ctx.fillStyle = 'rgb(255, 0, 255)';
+      ctx.strokeStyle = 'orange';
+
+      ctx.beginPath();
+      ctx.rect(100, 0, 100, 50);
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.rect(100, 100, 100, 50);
+      ctx.closePath();
+      ctx.fill();
+    </script>
+  </body>
+</html>
