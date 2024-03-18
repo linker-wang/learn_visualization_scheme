@@ -7,6 +7,85 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Document</title>
+    <style>
+      #content {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <canvas id="content"></canvas>
+    <script>
+      window.onload = () => {
+        const canvasEl = document.getElementById('content');
+        const { offsetWidth, offsetHeight } = canvasEl;
+        canvasEl.width = offsetWidth;
+        canvasEl.height = offsetHeight;
+
+        /* 加载图片 */
+        const earthImage = new Image();
+        earthImage.src = '../image/canvas_earth.png';
+        const moonImage = new Image();
+        moonImage.src = '../image/canvas_moon.png';
+        const sunImage = new Image();
+        sunImage.src = '../image/canvas_sun.png';
+
+        const ctx = canvasEl.getContext('2d');
+
+        /* 计数 */
+        let counter = 0;
+
+        /* 绘制动画 */
+        requestAnimationFrame(draw);
+
+        /* 绘制全局 */
+        function draw() {
+          counter++;
+
+          ctx.clearRect(0, 0, offsetWidth, offsetHeight);
+          drawSun();
+          drawEarth();
+          drawMoon();
+
+          requestAnimationFrame(draw);
+        }
+
+        /* 绘制太阳和轨道 */
+        function drawSun() {
+          ctx.save();
+          /* 绘制图片 */
+          ctx.drawImage(sunImage, 0, 0, offsetWidth, offsetHeight);
+
+          /* 绘制轨道 */
+          ctx.beginPath();
+          ctx.strokeStyle = '#4A97EC';
+          ctx.arc(offsetWidth / 2, offsetHeight / 2, 100, 0, Math.PI * 2);
+          ctx.stroke();
+
+          ctx.restore();
+        }
+
+        /* 绘制地球 */
+        function drawEarth() {
+          ctx.save();
+          ctx.translate(offsetWidth / 2, offsetHeight / 2);
+          ctx.rotate((Math.PI / 720) * counter);
+          ctx.drawImage(earthImage, 85, -15, 30, 30);
+          ctx.restore();
+        }
+
+        /* 绘制月球 */
+        function drawMoon() {
+          ctx.save();
+          ctx.translate(offsetWidth / 2, offsetHeight / 2);
+          ctx.rotate((Math.PI / 720) * counter);
+          ctx.translate(100, 0);
+          ctx.rotate((Math.PI / 540) * counter);
+          ctx.drawImage(moonImage, 20, 20, 5, 5);
+          ctx.restore();
+        }
+      };
+    </script>
+  </body>
 </html>
