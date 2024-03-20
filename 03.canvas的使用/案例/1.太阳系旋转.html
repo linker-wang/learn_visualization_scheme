@@ -47,6 +47,7 @@
           drawSun();
           drawEarth();
           drawMoon();
+          drawMatte();
 
           requestAnimationFrame(draw);
         }
@@ -83,6 +84,17 @@
           ctx.translate(100, 0);
           ctx.rotate((Math.PI / 540) * counter);
           ctx.drawImage(moonImage, 20, 20, 5, 5);
+          ctx.restore();
+        }
+
+        /* 绘制蒙版 */
+        function drawMatte() {
+          ctx.save();
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+          ctx.translate(offsetWidth / 2, offsetHeight / 2);
+          ctx.rotate((Math.PI / 720) * counter);
+          ctx.translate(100, 0);
+          ctx.fillRect(0, -15, 40, 30);
           ctx.restore();
         }
       };

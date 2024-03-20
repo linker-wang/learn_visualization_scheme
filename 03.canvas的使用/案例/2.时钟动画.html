@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #content {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(240, 168, 168, 0.1);
+      }
+
+      .clock {
+        width: 300px;
+        height: 300px;
+        background-color: black;
+        border-radius: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <canvas id="content"></canvas>
+    </div>
+    <script>
+      window.onload = () => {
+        const canvasEl = document.getElementById('content');
+        const { offsetHeight, offsetWidth } = canvasEl;
+        canvasEl.width = offsetWidth;
+        canvasEl.height = offsetHeight;
+
+        const ctx = canvasEl.getContext('2d');
+        requestAnimationFrame(draw);
+
+        /* 绘制全局 */
+        function draw() {
+          ctx.clearRect(0, 0, offsetWidth, offsetHeight);
+          drawDialPlate();
+          drawGraduation();
+          drawNumber();
+          drawCenter();
+
+          /* 时间 */
+          const time = new Date();
+          const hours = time.getHours();
+          const minutes = time.getMinutes();
+          const seconds = time.getSeconds();
+          drawSecondHand(seconds);
+          drawMinuteHand(minutes, seconds);
+          drawHourHand(hours, minutes, seconds);
+
+          requestAnimationFrame(draw);
+        }
+
+        /* 绘制表盘 */
+        function drawDialPlate() {
+          ctx.save();
+          ctx.fillStyle = 'white';
+          ctx.translate(offsetWidth / 2, offsetHeight / 2);
+          ctx.beginPath();
+          ctx.arc(0, 0, 130, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        /* 绘制刻度 */
+        function drawGraduation() {
+          ctx.save();
+          ctx.translate(offsetWidth / 2, offsetHeight / 2);
+          for (let index = 0; index < 60; index++) {
+            ctx.rotate(Math.PI / 30);
+            ctx.beginPath();
+            ctx.moveTo(130, 0);
+            if ((index + 1) % 5 !== 0) {
+              ctx.lineWidth = 1;
+              ctx.lineTo(125, 0);
+            } else {
+              ctx.lineWidth = 3;
+              ctx.lineTo(120, 0);
+            }
+            ctx.closePath();
+            ctx.stroke();
+          }
+          ctx.restore();
+        }
+
+        /* 绘制数字 */
+        function drawNumber() {
+          ctx.save();
+          ctx.font = '24px sens-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.translate(offsetWidth / 2, offsetHeight / 2);
+          ctx.rotate(-Math.PI / 2);
+          for (let index = 0; index < 60; index++) {
+            ctx.rotate(Math.PI / 30);
+            ctx.save();
+            ctx.translate(100, 0);
+            ctx.rotate(Math.PI / 2 - (Math.PI / 30) * (index + 1));
+            ctx.beginPath();
+            if ((index + 1) % 5 === 0) {
+              ctx.fillText((index + 1) / 5, 0, 3);
+            }
+            ctx.closePath();
+            ctx.restore();
+            ctx.stroke();
+          }
+          ctx.restore();
+        }
+
+        /* 绘制原点 */
+        function drawCenter() {
+          ctx.save();
+          ctx.translate(offsetWidth / 2, offsetHeight / 2);
+          ctx.beginPath();
+          ctx.arc(0, 0, 8, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.fill();
+          ctx.fillStyle = 'gray';
+          ctx.beginPath();
+          ctx.arc(0, 0, 5, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.fill();
+          ctx.restore();
+        }
+
+        /* 绘制时针 */
+        function drawHourHand(hours, minutes, seconds) {
+          ctx.save();
+          ctx.lineWidth = '5';
+          ctx.lineCap = 'round';
+          ctx.translate(offsetWidth / 2, offsetHeight / 2);
+          ctx.rotate(
+            -(Math.PI / 2) +
+              (Math.PI / 6) * hours +
+              ((Math.PI / 6) * minutes) / 60 +
+              (Math.PI / 6 / 3600) * seconds
+          );
+          ctx.beginPath();
+          ctx.moveTo(8, 0);
+          ctx.lineTo(50, 0);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        /* 绘制秒针 */
+        function drawSecondHand(second) {
+          ctx.save();
+          ctx.lineWidth = '2';
+          ctx.lineCap = 'round';
+          ctx.strokeStyle = 'red';
+          ctx.translate(offsetWidth / 2, offsetHeight / 2);
+          ctx.rotate(-Math.PI / 2 + (Math.PI / 30) * second);
+          ctx.beginPath();
+          ctx.moveTo(8, 0);
+          ctx.lineTo(85, 0);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        /* 绘制分针 */
+        function drawMinuteHand(minutes, seconds) {
+          ctx.save();
+          ctx.lineWidth = '3';
+          ctx.lineCap = 'round';
+          ctx.translate(offsetWidth / 2, offsetHeight / 2);
+          ctx.rotate(
+            -Math.PI / 2 +
+              (Math.PI / 30) * minutes +
+              ((Math.PI / 30) * seconds) / 60
+          );
+          ctx.beginPath();
+          ctx.moveTo(8, 0);
+          ctx.lineTo(70, 0);
+          ctx.stroke();
+          ctx.restore();
+        }
+      };
+    </script>
+  </body>
+</html>
