@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* svg命名空间 */
+      const svgns = 'http://www.w3.org/2000/svg';
+
+      /* 创建svg元素 */
+      const svgEl = document.createElementNS(svgns, 'svg');
+      const rectEl = document.createElementNS(svgns, 'rect');
+
+      /* 添加相关属性 */
+      svgEl.setAttributeNS(null, 'version', '1.0');
+      svgEl.setAttributeNS(null, 'width', '100');
+      svgEl.setAttributeNS(null, 'height', '100');
+
+      rectEl.setAttributeNS(null, 'width', '50');
+      rectEl.setAttributeNS(null, 'height', '50');
+
+      /* 追加元素 */
+      svgEl.appendChild(rectEl);
+      document.body.appendChild(svgEl);
+    </script>
+  </body>
+</html>

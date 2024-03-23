@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- svg中的宽高默认是px,可以省略, 也可以用cm等单位 -->
+    <!-- svg中有两个坐标系, 一个是视口坐标系, 另一个是用户坐标系, 我们真实的绘制是在用户坐标系中进行 -->
+    <!-- 默认视口坐标系和用户坐标系相同, 可以是用viewBox设置用户坐标系viewBox="0 0 100 100" -->
+    <!-- 前两个参数表示用户坐标系中将被裁剪的起点坐标, 后两个参数表示用户坐标中被裁剪位置的宽高 -->
+
+    <!-- 1.当用户坐标系的裁剪宽高比与视口坐标系中的宽高比相同时, 意味着用户坐标系中裁剪的部位在视口坐标系中等比例缩放 -->
+
+    <!-- <svg
+      width="300"
+      height="300"
+      viewBox="0 0 100 100"
+    >
+      <rect
+        x="0"
+        y="0"
+        width="50"
+        height="50"
+      ></rect>
+    </svg> -->
+
+    <!-- 2.当用户坐标系的裁剪宽高比与视口坐标系中的宽高比不同时, 会放大到宽高有一边正好撑满, 然后另一方向居中 -->
+    <!-- 可以设置preserveAspectRatio属性,采取不同的放大方式 -->
+    <!-- preserveAspectRatio="none", 不保持宽高比全部撑满-->
+    <!-- preserveAspectRatio="xMinYMin", 按一边放大后, 另一边不居中 -->
+
+    <!-- <svg
+      width="300"
+      height="300"
+      viewBox="0 0 100 50"
+    >
+      <rect
+        x="0"
+        y="0"
+        width="50"
+        height="50"
+      ></rect>
+    </svg> -->
+
+    <!-- <svg
+      width="300"
+      height="300"
+      viewBox="0 0 100 50"
+      preserveAspectRatio="none"
+    >
+      <rect
+        x="0"
+        y="0"
+        width="50"
+        height="50"
+      ></rect>
+    </svg> -->
+
+    <svg
+      width="300"
+      height="300"
+      viewBox="0 0 100 50"
+      preserveAspectRatio="xMinYMin"
+    >
+      <rect
+        x="0"
+        y="0"
+        width="50"
+        height="50"
+      ></rect>
+    </svg>
+  </body>
+</html>
