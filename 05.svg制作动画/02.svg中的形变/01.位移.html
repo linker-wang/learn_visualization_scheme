@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="300"
+      height="300"
+    >
+      <!-- 和css中的transform一样, svg中位移等操作也会改变坐标系 -->
+      <!-- 注意, 在svg中属性使用transform时, 只能用2d的 而css中的translate可以说使用3d形变 -->
+      <!-- translate(x, y)函数 中参数x表示x轴方向上的位移量, y表示y轴方向上的位移量-->
+      <rect
+        x="0"
+        y="0"
+        width="100"
+        height="50"
+        transform="translate(200, 200)"
+      ></rect>
+    </svg>
+  </body>
+</html>
