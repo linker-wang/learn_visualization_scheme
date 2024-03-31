@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="300"
+      height="300"
+    >
+      <!-- 在defs元素中定义会被复用的元素, 在defs中的定义元素时不会,元素不会展示 -->
+      <defs>
+        <!-- 可以使用style标签, 在style表情中定义元素的延时属性 -->
+        <style>
+          #rectangle {
+            fill: red;
+          }
+        </style>
+
+        <!-- 定义会被复用的元素 -->
+        <!-- 1.定义一个矩形 -->
+        <rect
+          id="rectangle"
+          width="100"
+          height="100"
+        ></rect>
+      </defs>
+
+      <!-- 也可以用symbol元素定义元素 -->
+      <!-- symbol相比于defs 可以添加一些属性, 如x, y, width, height, viewBox, preserveAspectRatio 等 -->
+      <symbol></symbol>
+
+      <!-- 使用use元素, 可以使用在defs中定义的元素, use元素中href属性用于指定定义的元素
+            可以跨svg复用defs中定义的元素
+      -->
+      <use href="#rectangle"></use>
+    </svg>
+  </body>
+</html>

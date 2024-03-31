@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="300"
+      height="300"
+    >
+      <!-- 利用text元素定义文字 -->
+      <text
+        x="100"
+        y="100"
+        fill="red"
+        font-size="20"
+      >
+        文字
+      </text>
+
+      <!-- 设置文本的对齐方式 text-anchor-->
+      <text
+        x="100"
+        y="150"
+        fill="red"
+        font-size="20"
+        text-anchor="middle"
+      >
+        文本居中
+      </text>
+
+      <!-- 基线的对齐方式 dominant-baseline-->
+      <text
+        x="100"
+        y="200"
+        fill="red"
+        font-size="20"
+        dominant-baseline="middle"
+      >
+        基线对齐方式
+      </text>
+
+      <!-- 文本中嵌套tspan -->
+      <!-- tspan只能嵌套到text或tspan的元素中 -->
+      <text
+        x="200"
+        y="100"
+        fill="gray"
+        font-size="20"
+      >
+        价格:
+        <tspan
+          fill="red"
+          font-weight="600"
+        >
+          ¥99
+        </tspan>
+      </text>
+    </svg>
+  </body>
+</html>

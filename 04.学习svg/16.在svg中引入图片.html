@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- svg1.0 引入图片需要添加命名空间 -->
+    <svg
+      version="1.0"
+      baseProfile="full"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="300"
+      height="300"
+    >
+      <!-- 使用image标签引入图片, 注意不是html中的img, 使用href导入图片地址 -->
+      <image
+        x="0"
+        y="0"
+        width="300"
+        height="300"
+        xlink:href="./images/googlelogo_color_92x30dp.png"
+      ></image>
+    </svg>
+
+    <!-- svg2.0 引入图片不用加命名空间 -->
+    <svg
+      width="300"
+      height="300"
+    >
+      <image
+        x="0"
+        y="0"
+        width="300"
+        height="300"
+        href="./images/googlelogo_color_92x30dp.png"
+      ></image>
+    </svg>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="300"
+      height="300"
+    >
+      <!-- d属性用来表示路径中的一个 命令+参数 的序列 -->
+      <!-- M/m表示MoveTo -->
+      <!-- L/i表示LineTo -->
+      <!-- Z/z表示ClosePath 会自动闭合曲线 -->
+      <!-- H/h表示水平 -->
+      <!-- V/v表示垂直 -->
+      <!-- 大写字母表示绝对定位, 小写字母表示相对定位 -->
+      <path
+        d="M 100 100, L 100 200, L 200 200, L 200 100 Z"
+        fill="transparent"
+        stroke="red"
+      ></path>
+    </svg>
+  </body>
+</html>

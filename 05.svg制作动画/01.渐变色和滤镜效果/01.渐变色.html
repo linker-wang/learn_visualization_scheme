@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="500"
+      height="500"
+    >
+      <!-- 在defs中定义渐变效果-->
+      <defs>
+        <!-- 使用linearGradient定义线性渐变 -->
+        <linearGradient id="svg-gradient1">
+          <!-- 
+            在linearGrandient中通过使用stop标签定义渐变的节点 
+            offset属性用于确定渐变的偏移进度, 
+            stop-color确定当前的颜色
+          -->
+          <stop
+            offset="0%"
+            stop-color="red"
+          ></stop>
+          <stop
+            offset="50%"
+            stop-color="green"
+          ></stop>
+          <stop
+            offset="100%"
+            stop-color="blue"
+          ></stop>
+        </linearGradient>
+
+        <!-- 也可以指定渐变的方向, 使用x1, y1, x2, y2确定方向, 赋值为0或1 -->
+        <!-- 从左到右 -->
+        <linearGradient
+          id="svg-gradient2"
+          x1="0"
+          y1="0"
+          x2="1"
+          y2="0"
+        >
+          <stop
+            offset="0%"
+            stop-color="red"
+          ></stop>
+          <stop
+            offset="50%"
+            stop-color="green"
+          ></stop>
+          <stop
+            offset="100%"
+            stop-color="blue"
+          ></stop>
+        </linearGradient>
+
+        <!-- 从上到下 -->
+        <linearGradient
+          id="svg-gradient3"
+          x1="0"
+          y1="0"
+          x2="0"
+          y2="1"
+        >
+          <stop
+            offset="0%"
+            stop-color="red"
+          ></stop>
+          <stop
+            offset="50%"
+            stop-color="green"
+          ></stop>
+          <stop
+            offset="100%"
+            stop-color="blue"
+          ></stop>
+        </linearGradient>
+
+        <!-- 从左上到右下 -->
+        <linearGradient
+          id="svg-gradient4"
+          x1="0"
+          y1="0"
+          x2="1"
+          y2="1"
+        >
+          <stop
+            offset="0%"
+            stop-color="red"
+          ></stop>
+          <stop
+            offset="50%"
+            stop-color="green"
+          ></stop>
+          <stop
+            offset="100%"
+            stop-color="blue"
+          ></stop>
+        </linearGradient>
+      </defs>
+
+      <!-- 使用渐变色, 在fill或stroke中使用渐变色 -->
+      <!--  -->
+      <rect
+        x="0"
+        y="0"
+        width="100"
+        height="100"
+        fill="url(#svg-gradient1)"
+      ></rect>
+
+      <!-- 渐变方向设置为从左到右 -->
+      <rect
+        x="200"
+        y="0"
+        width="100"
+        height="100"
+        fill="url(#svg-gradient2)"
+      ></rect>
+
+      <!-- 渐变方向设置为从上到下 -->
+      <rect
+        x="400"
+        y="0"
+        width="100"
+        height="100"
+        fill="url(#svg-gradient3)"
+      ></rect>
+
+      <!-- 渐变方向设置为从左上到右下 -->
+      <rect
+        x="0"
+        y="200"
+        width="100"
+        height="100"
+        fill="url(#svg-gradient4)"
+      ></rect>
+    </svg>
+  </body>
+</html>

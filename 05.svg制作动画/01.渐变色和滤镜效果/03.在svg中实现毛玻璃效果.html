@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="400"
+      height="400"
+    >
+      <!-- 定义高斯模糊 -->
+      <!-- 使用filter设置滤镜,在filter中使用feGaussianBlur定义高斯模糊, feGaussianBlur中的stdDeviation设置模糊像素值 -->
+      <defs>
+        <!-- filter中的x, y, width, height值中 x, y 默认为-10%, width和height默认为120% -->
+        <filter
+          id="gaussian-blur"
+          x="50%"
+          y="50%"
+          width="50%"
+          height="25%"
+        >
+          <feGaussianBlur stdDeviation="8"></feGaussianBlur>
+        </filter>
+      </defs>
+
+      <!-- 利用image中的filter属性引用定义的filter -->
+      <image
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        href="./images/avatar.jpeg"
+        filter="url(#gaussian-blur)"
+      ></image>
+    </svg>
+  </body>
+</html>

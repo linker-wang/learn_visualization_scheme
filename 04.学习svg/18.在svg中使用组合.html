@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="300"
+      height="300"
+    >
+      <!-- g元素内嵌套组合元素 -->
+      <!-- g元素的子元素的样式属性可以从g元素中继承 -->
+      <g
+        fill="transparent"
+        stroke-width="5"
+      >
+        <circle
+          cx="50"
+          cy="100"
+          r="45"
+          stroke="blue"
+        ></circle>
+        <circle
+          cx="150"
+          cy="100"
+          r="45"
+          stroke="black"
+        ></circle>
+        <circle
+          cx="250"
+          cy="100"
+          r="45"
+          stroke="red"
+        ></circle>
+        <circle
+          cx="100"
+          cy="150"
+          r="45"
+          stroke="yellow"
+        ></circle>
+        <circle
+          cx="200"
+          cy="150"
+          r="45"
+          stroke="green"
+        ></circle>
+      </g>
+    </svg>
+  </body>
+</html>

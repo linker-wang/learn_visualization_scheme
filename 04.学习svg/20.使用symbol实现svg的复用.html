@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="300"
+      height="300"
+    >
+      <!-- 定义一个矩形 -->
+      <!-- symbol中可以使用viewBox属性 -->
+      <symbol
+        id="rectangle"
+        viewBox="0 0 100 100"
+      >
+        <rect
+          x="0"
+          y="0"
+          width="100"
+          height="100"
+        ></rect>
+      </symbol>
+
+      <!-- 可以在当前svg中使用定义的元素 -->
+      <use
+        href="#rectangle"
+        x="10"
+        y="10"
+      ></use>
+    </svg>
+
+    <!-- 使用外部svg中定义的元素 -->
+    <svg
+      width="200"
+      height="200"
+    >
+      <use
+        href="#rectangle"
+        width="100"
+        height="100"
+      ></use>
+    </svg>
+  </body>
+</html>

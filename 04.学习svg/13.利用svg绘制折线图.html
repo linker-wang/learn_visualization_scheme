@@ -18,15 +18,19 @@
       width="300"
       height="300"
     >
-      <!-- rx, ry 表示x轴和y轴方向上的圆角 -->
-      <rect
-        x="0"
-        y="0"
-        width="50"
-        height="50"
-        rx="10"
-        ry="10"
-      ></rect>
+      <polyline
+        points="0 100, 50 100, 75 50, 125 150, 175 50, 225 150, 275 100, 300 100"
+        fill="transparent"
+        stroke="red"
+      ></polyline>
+
+      <!-- polyline不会形成闭合图形 -->
+      <polyline
+        points="100 150, 200 200, 100 200"
+        fill="transparent"
+        stroke="black"
+        stroke-width="5"
+      ></polyline>
     </svg>
   </body>
 </html>
