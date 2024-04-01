@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+
+      .line1,
+      .line2 {
+        fill: transparent;
+        stroke: red;
+        stroke-width: 5;
+      }
+
+      .line1 {
+        stroke-dasharray: 10;
+        stroke-dashoffset: 40;
+        animation: lineMove1 2s linear infinite;
+      }
+
+      @keyframes lineMove1 {
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .line2 {
+        stroke-dasharray: 300;
+        stroke-dashoffset: 300;
+        animation: lineMove2 4s linear forwards;
+      }
+
+      @keyframes lineMove2 {
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="500"
+      height="500"
+    >
+      <path
+        class="line1"
+        d="M 100 100, L 300 100, L 300 200"
+      ></path>
+
+      <path
+        class="line2"
+        d="M 100 300, L 300 300, L 300 400"
+      ></path>
+    </svg>
+  </body>
+</html>

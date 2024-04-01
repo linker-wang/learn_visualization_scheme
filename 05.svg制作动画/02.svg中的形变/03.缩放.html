@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="500"
+      height="500"
+    >
+      <!-- 缩放是从用户坐标系的原点开始缩放的 -->
+      <rect
+        x="0"
+        y="0"
+        width="100"
+        height="100"
+        transform="translate(100, 100) scale(0.5)"
+      ></rect>
+
+      <!-- 元素rect的位置和大小在用户坐标系上确定,  之后再进行形变-->
+      <rect
+        x="-50"
+        y="-50"
+        width="100"
+        height="100"
+        transform="translate(300, 100) scale(0.5)"
+      ></rect>
+    </svg>
+  </body>
+</html>

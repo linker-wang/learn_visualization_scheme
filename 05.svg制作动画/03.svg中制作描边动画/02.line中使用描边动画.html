@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+
+      .line1 {
+        animation: stroke-animation 2s linear infinite;
+      }
+
+      @keyframes stroke-animation {
+        0% {
+          stroke-dashoffset: 0;
+        }
+
+        100% {
+          stroke-dashoffset: 200;
+        }
+      }
+
+      /* 写法一 */
+      .line2 {
+        animation: lineMove1 2s linear;
+      }
+
+      @keyframes lineMove1 {
+        0% {
+          stroke-dashoffset: 100;
+        }
+
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /* 写法二 */
+      .line3 {
+        animation: lineMove2 2s linear forwards;
+        stroke-dashoffset: 100;
+      }
+
+      @keyframes lineMove2 {
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="500"
+      height="500"
+    >
+      <line
+        class="line1"
+        x1="100"
+        y1="100"
+        x2="400"
+        y2="100"
+        stroke="red"
+        stroke-width="5"
+        stroke-dasharray="100"
+      ></line>
+
+      <line
+        class="line2"
+        x1="100"
+        y1="200"
+        x2="200"
+        y2="200"
+        stroke="red"
+        stroke-width="5"
+        stroke-dasharray="100"
+      ></line>
+
+      <line
+        class="line3"
+        x1="100"
+        y1="300"
+        x2="200"
+        y2="300"
+        stroke="red"
+        stroke-width="5"
+        stroke-dasharray="100"
+      ></line>
+    </svg>
+  </body>
+</html>
