@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: #020438;
+        color: white;
+        font: 14px/1 'Open Sans', helvetica, sans-serif;
+      }
+
+      svg {
+        padding: 0;
+        margin: 0;
+      }
+
+      .box {
+        width: 280px;
+        height: 280px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .box > .percent {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 64px;
+        z-index: 9999;
+      }
+
+      .box > .water {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        /* animation: waterMove 2s linear forwards; */
+      }
+
+      .water > .water-wave {
+        position: absolute;
+        bottom: 100%;
+      }
+
+      .water > .water-wave-out {
+        left: 0;
+        fill: #4d6de3;
+        z-index: 999;
+        animation: waterOutMove 1s linear infinite;
+        margin-bottom: -1px;
+      }
+
+      .water > .water-wave-in {
+        right: 0;
+        fill: #c7eeff;
+        z-index: 99;
+        animation: waterInMove 1s linear infinite;
+      }
+
+      .water > .water-bottom {
+        width: 100%;
+        height: 100%;
+        background-color: #4d6de3;
+      }
+
+      /* 动画 */
+      @keyframes waterOutMove {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes waterInMove {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(50%);
+        }
+      }
+
+      @keyframes waterMove {
+        0% {
+          transform: translateY(0);
+        }
+
+        100% {
+          transform: translateY(-70%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 定义svg -->
+    <svg display="none">
+      <symbol id="wave">
+        <path
+          d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"
+        ></path>
+        <path
+          d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"
+        ></path>
+        <path
+          d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"
+        ></path>
+        <path
+          d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"
+        ></path>
+      </symbol>
+    </svg>
+
+    <div class="box">
+      <!-- 百分比 -->
+      <div class="percent">
+        <div class="num">70</div>
+        <div class="percent-symbol">%</div>
+      </div>
+
+      <!-- 水面 -->
+      <div class="water">
+        <!-- 水波 -->
+        <svg
+          class="water-wave water-wave-out"
+          height="20"
+          viewBox="0 0 560 20"
+        >
+          <use href="#wave"></use>
+        </svg>
+        <svg
+          class="water-wave water-wave-in"
+          height="20"
+          viewBox="0 0 560 20"
+        >
+          <use href="#wave"></use>
+        </svg>
+        <!-- 水底 -->
+        <div class="water-bottom"></div>
+      </div>
+    </div>
+    <script>
+      window.onload = () => {
+        const numEl = document.querySelector('.num');
+        const waterEl = document.querySelector('.water');
+
+        let num = 0;
+        const finalNum = 100;
+
+        const timer = setInterval(() => {
+          if (num > finalNum) {
+            clearInterval(timer);
+            return;
+          }
+          numEl.textContent = num;
+          waterEl.style.transform = `translateY(-${num}%)`;
+          num++;
+        }, 100);
+      };
+    </script>
+  </body>
+</html>

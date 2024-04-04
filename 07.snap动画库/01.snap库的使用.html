@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="./libs/snap.svg-min.js"></script>
+    <script>
+      window.onload = () => {
+        /* 1.创建一个svg */
+        const svg = Snap(300, 300);
+
+        /* 2.使用paper绘制 */
+        const paper = svg.paper;
+        const circle = paper.circle(100, 100, 50);
+
+        /* 3.添加属性 */
+        circle.attr({
+          fill: 'red',
+        });
+
+        /* 4.追加元素 */
+        /* 如果不向元素中追加svg, 则会出现svg被追加到body中的最后 */
+        document.getElementById('app').appendChild(svg.node);
+      };
+    </script>
+  </body>
+</html>

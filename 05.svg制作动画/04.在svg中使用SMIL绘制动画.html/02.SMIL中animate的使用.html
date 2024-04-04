@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="300"
+      height="600"
+    >
+      <!-- animate是用于设置过渡动画的 -->
+      <!-- animate中的相关属性:
+        1.attributeName: 和set中的一样用于设置改变的属性
+        2.from/to: 分别用于设置改变的属性的起始值和改变后的值
+        3.values: 用于替代form/to, 使用values后, from/to 自动失效,  values可以设置多个值, 每个值之间使用分号分隔, 注意每一段会等分时间
+        4.begin: 和set中的一样, 用于设置开始动画的时机
+        5.dur: 动画持续的时间
+        6.fill: 用与设置完成动画后保持的状态, 如: freeze(表示保持动画最后一帧的状态, 如animation动画中的forwards), indefinite(动画完成后,显示为第一帧的状态)
+        7.repeatCount: 表示动画执行的次数 无默认值, 可以使用indefinite 表示无限次数
+    -->
+
+      <!-- 1. 矩形3s内慢慢移动到右边 -->
+      <rect
+        x="0"
+        y="0"
+        width="100"
+        height="50"
+      >
+        <animate
+          attributeName="x"
+          from="0"
+          to="200"
+          dur="3s"
+          fill="freeze"
+        ></animate>
+      </rect>
+
+      <!-- 2. 2s后,矩形在3s内慢慢移动到右边 -->
+      <rect
+        x="0"
+        y="100"
+        width="100"
+        height="50"
+      >
+        <animate
+          attributeName="x"
+          from="0"
+          to="200"
+          dur="3s"
+          begin="2s"
+          fill="freeze"
+        ></animate>
+      </rect>
+
+      <!-- 3. 矩形3s内慢慢移动到右边, 再移动到中心, 使用values定义多段变化 -->
+      <rect
+        x="0"
+        y="200"
+        width="100"
+        height="50"
+      >
+        <animate
+          attributeName="x"
+          values="0; 200; 100"
+          dur="3s"
+          fill="freeze"
+        ></animate>
+      </rect>
+
+      <!-- 4. 多段时间内改变矩形的颜色 -->
+      <rect
+        x="0"
+        y="300"
+        width="100"
+        height="50"
+      >
+        <animate
+          attributeName="fill"
+          values="red; orange; yellow; green; cyan; blue; purple;"
+          dur="3s"
+          fill="freeze"
+        ></animate>
+      </rect>
+
+      <!-- 5. 多段时间内改变矩形的颜色- 使用无限执行次数 -->
+      <rect
+        x="0"
+        y="400"
+        width="100"
+        height="50"
+      >
+        <animate
+          attributeName="fill"
+          values="red; orange; yellow; green; cyan; blue; purple; red;"
+          dur="8s"
+          repeatCount="indefinite"
+        ></animate>
+      </rect>
+
+      <!-- 6. 多个动画分阶段 -->
+      <!-- 注意一个小坑, begin中使用id.end时, 定义的id如果使用类似right-move这种,不会生效, 可以改为rightMove -->
+      <rect
+        x="0"
+        y="500"
+        width="100"
+        height="50"
+      >
+        <!-- 发现一个要点: begin其实是可以有多个值的, 使用多个值时要用分号分隔,  begin用多个值可以实现多个连续动画的循环播放 -->
+        <animate
+          id="rightMove"
+          attributeName="x"
+          to="200"
+          dur="2s"
+          fill="freeze"
+          begin="0s; topMove.end"
+        ></animate>
+
+        <animate
+          id="bottomMove"
+          attributeName="y"
+          to="550"
+          dur="1s"
+          fill="freeze"
+          begin="rightMove.end"
+        ></animate>
+
+        <animate
+          id="leftMove"
+          attributeName="x"
+          to="0"
+          dur="2s"
+          fill="freeze"
+          begin="bottomMove.end"
+        ></animate>
+
+        <animate
+          id="topMove"
+          attributeName="y"
+          to="500"
+          dur="1s"
+          fill="freeze"
+          begin="leftMove.end"
+        ></animate>
+
+        <!-- 再添加一个全过程的颜色变换 -->
+        <animate
+          id="colorChange"
+          attributeName="fill"
+          values="red; green; blue; yellow; red"
+          dur="6s"
+          repeatCount="indefinite"
+        ></animate>
+      </rect>
+    </svg>
+  </body>
+</html>

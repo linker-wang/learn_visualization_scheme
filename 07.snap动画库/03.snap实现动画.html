@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg
+      id="svg-1"
+      width="300"
+      height="300"
+    ></svg>
+
+    <!-- snap实现动画的方式主要是使用Snap.animate函数 -->
+    <script src="./libs/snap.svg-min.js"></script>
+    <script>
+      const svg = Snap('#svg-1');
+      const paper = svg.paper;
+
+      const rect = paper.rect(0, 0, 100, 50);
+      rect.attr({
+        fill: 'red',
+      });
+
+      Snap.animate(
+        [0, 0],
+        [200, 200],
+        (values) => {
+          rect.attr({
+            x: values[0],
+            y: values[1],
+          });
+        },
+        1000,
+        mina.linear,
+        () => {
+          console.log('已经结束了');
+        }
+      );
+    </script>
+  </body>
+</html>

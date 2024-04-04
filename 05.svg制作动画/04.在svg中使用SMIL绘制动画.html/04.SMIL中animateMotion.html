@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="300"
+      height="300"
+    >
+      <!-- 绘制一条路径 -->
+      <path
+        d="M 0 50, L 100 100, L 200 50, L 300 50"
+        fill="transparent"
+        stroke="red"
+      ></path>
+
+      <!-- animateMotion主要用于让元素沿路径移动 -->
+      <rect
+        x="-10"
+        y="-5"
+        width="20"
+        height="10"
+        fill="red"
+      >
+        <!-- animateMotion使用path属性, 类比path中的d属性, 用于确定节点位置 -->
+        <!-- dur属性用于确定动画时间, rotate属性用于设置元素是否旋转 -->
+        <animateMotion
+          path="M 0 50, L 100 100, L 200 50, L 300 50"
+          dur="2s"
+          rotate="auto"
+          fill="freeze"
+        ></animateMotion>
+      </rect>
+    </svg>
+
+    <!-- animateMotion中的path方法可以使用mpath元素引入已有的path -->
+    <svg
+      width="300"
+      height="300"
+    >
+      <path
+        id="linePath"
+        d="M 0 50, L 100 100, L 200 50, L 300 50"
+        fill="transparent"
+        stroke="red"
+      ></path>
+
+      <rect
+        x="-10"
+        y="-5"
+        width="20"
+        height="10"
+        fill="red"
+      >
+        <animateMotion
+          dur="2s"
+          rotate="auto"
+          fill="freeze"
+        >
+          <mpath href="#linePath"></mpath>
+        </animateMotion>
+      </rect>
+    </svg>
+
+    <!-- 分离元素中的animateMotion -->
+    <svg
+      width="300"
+      height="300"
+    >
+      <path
+        id="linePath2"
+        d="M 0 50, L 100 100, L 200 50, L 300 50"
+        fill="transparent"
+        stroke="red"
+      ></path>
+
+      <rect
+        id="rect"
+        x="-10"
+        y="-5"
+        width="20"
+        height="10"
+        fill="red"
+      ></rect>
+
+      <!-- 分离animateMotion -->
+      <animateMotion
+        href="#rect"
+        dur="2s"
+        fill="freeze"
+      >
+        <mpath href="#linePath2"></mpath>
+      </animateMotion>
+    </svg>
+  </body>
+</html>

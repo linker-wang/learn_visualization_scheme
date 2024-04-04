@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      svg {
+        background-image: url(./images/grid.png);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="300"
+      height="600"
+    >
+      <!-- animateTransform属性用来实现css中transform的一些形变 -->
+      <!-- 在一个元素上只能使用一个animateTransform, 多次使用时,最后使用的会覆盖前面使用的 -->
+      <!-- animateTransform的属性:
+          1.attributeName: 指定变化的属性和transform*
+          2.type: 在animateTransform中表示形变类型, 只支持: translate(x, y), rotate(deg, x, y), scale(x, y), skewX(x), skewY(y)
+          3.from/to/value: 与animate中的一样, 表示不同阶段的属性的值
+          4.dur: 表示动画执行时间
+          5.fill: 表示动画执行完成后的元素状态
+          6.repeatCount: 表示动画的执行次数
+      -->
+
+      <!-- 1.位移 -->
+      <rect
+        x="0"
+        y="0"
+        width="100"
+        height="50"
+      >
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          from="0 0"
+          to="200 0"
+          begin="0s"
+          dur="2s"
+          fill="freeze"
+        ></animateTransform>
+      </rect>
+
+      <!-- 2.旋转 -->
+      <rect
+        x="0"
+        y="100"
+        width="100"
+        height="50"
+      >
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          from="0 50 125"
+          to="360 50 125"
+          begin="0s"
+          dur="2s"
+        ></animateTransform>
+      </rect>
+
+      <!-- 3. 缩放 -->
+      <rect
+        x="0"
+        y="300"
+        width="100"
+        height="50"
+      >
+        <animateTransform
+          attributeName="transform"
+          type="scale"
+          from="1 1"
+          to="2 1"
+          begin="0s"
+          dur="2s"
+          fill="freeze"
+        ></animateTransform>
+      </rect>
+    </svg>
+  </body>
+</html>
